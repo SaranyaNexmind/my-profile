@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-red-500">
+    <div class="container mx-auto p-4">
+        <div class="max-w-lg mx-auto bg-white rounded-xl shadow-2xl overflow-hidden md:max-w-2xl p-6 border border-solid border-gray-600">
+            <div class="text-center p-8">
+                <div class="flex justify-center">
+                    <img id="profilePic" class="h-48 w-48 rounded-full object-cover" src="https://media.istockphoto.com/id/1398385367/photo/happy-millennial-business-woman-in-glasses-posing-with-hands-folded.jpg?s=1024x1024&w=is&k=20&c=jyQJHKT_p4eEeUe77NQKAp1oCjbMCxYN2XpLexwl5f4=" alt="Student photo">
+                </div>
+                <div>
+                    <div class="uppercase tracking-wide text-lg text-red-500 font-bold">My Profile</div>
+                    <h1 class="block mt-8 text-2xl leading-tight font-semibold font-serif text-purple-800" id="name">S.V.S.Saranya</h1>
+                    <h1 class="block mt-0 font-thin leading-tight text-blue-500" id="title">Web Development Intern</h1>
+                    <p class="mt-2 text-gray-500" id="bio">I'm Saranya, the only daughter of Mr.Balaji and Mrs.Velangini.
+                        I'm 21 years old.
+                        I was born and raised in the beautiful town of Nellore, Andhra Pradesh, India.</p>
+
+                    <!-- contact info -->
+                    <button id="toggleContactBtn" class="toggle-button rounded-full h-8 w-8 m-10 hover:bg-gray-200"><i class="fa-regular fa-address-card"></i></button>
+                    <div id="contactInfo" class="hidden mt-4">
+                        <h2 class="text-gray-700 font-bold shadow-md bg-gray-100">Contact Information</h2>
+                        <p class="text-gray-600">Email: <a class="text-blue-700 underline" id="email" href="saranya@gmail.com"> saranya@gmail.com</a></p>
+                        <p class="text-gray-600">Phone: 
+                            <a class="text-blue-700 underline" id="phone" href="+91 8235678443"> +91 8235678443</a></p>
+                    </div>
+
+                    <!-- education details -->
+                    <button id="toggleEducationBtn" class="toggle-button m-10 rounded-full h-8 w-8 hover:bg-gray-200"><i class="fa-solid fa-user-graduate"></i></button>
+                    <div id="educationInfo" class="mt-4 hidden">
+                        <h2 class="text-gray-700 font-bold shadow-lg bg-gray-100">Education</h2>
+                        <p class="text-gray-600" id="degree">B.Sc in Computer Science</p>
+                        <p class="text-gray-600" id="college">Zenex Vision Degree College</p>
+                        <p class="text-gray-600" id="graduation">Graduation: 2024</p>
+                    </div>
+
+                    <!-- skills -->
+                    <button id="toggleSkillsBtn" class="toggle-button m-10 rounded-full h-8 w-8 hover:bg-gray-200"><i class="fa-solid fa-sliders"></i></button>
+                    <div id="skillsInfo" class="mt-4 hidden">
+                        <h2 class="text-gray-700 font-bold shadow-lg bg-gray-100">Skills</h2>
+                        <p class="text-gray-600" id="skills">HTML, CSS, TailwindCSS, JavaScript, Node.js, Bootstrap.</p>                
+                    </div>
+
+                    <!-- hobbies -->
+                    <button id="toggleHobbiesBtn" class="toggle-button m-10 rounded-full h-8 w-8 hover:bg-gray-200"><i class="fa-solid fa-volleyball"></i></button>
+                    <div id="hobbiesInfo" class="mt-4 hidden">
+                        <h2 class="text-gray-700 font-bold shadow-lg bg-gray-100">Hobbies</h2>
+                        <p class="text-gray-600" id="hobbies">Reading, Traveling, Coding</p>
+                    </div>
+                </div>
+                <button id="editBtn" class="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700 rounded m-4">Edit</button>
+
+                    <div id="editForm" class="hidden mt-4">
+                        <h2 class="text-gray-700 font-bold">Edit Profile</h2>
+                        <form id="profileForm">
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Profile Picture URL:</label>
+                                <input type="text" id="editProfilePic" class="w-full mt-2 p-2 border border-gray-300 rounded" value="https://media.istockphoto.com/id/1398385367/photo/happy-millennial-business-woman-in-glasses-posing-with-hands-folded.jpg?s=1024x1024&w=is&k=20&c=jyQJHKT_p4eEeUe77NQKAp1oCjbMCxYN2XpLexwl5f4=">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Name:</label>
+                                <input type="text" id="editName" class="w-full mt-2 p-2 border border-gray-300 rounded" value="S.V.S.Saranya">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Title:</label>
+                                <input type="text" id="editTitle" class="w-full mt-2 p-2 border border-gray-300 rounded" value="Web Development Intern">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Bio:</label>
+                                <textarea id="editBio" class="w-full mt-2 p-2 border border-gray-300 rounded">I'm Saranya, the only daughter of Mr.Balaji and Mrs.Velangini. I'm 21 years old. I was born and raised in the beautiful town of Nellore, Andhra Pradesh, India.</textarea>
+                            </div>
+
+                            <!-- contact info -->
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Email:</label>
+                                <input type="text" id="editEmail" class="w-full mt-2 p-2 border border-gray-300 rounded" value="saranya@gmail.com">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Phone:</label>
+                                <input type="text" id="editPhone" class="w-full mt-2 p-2 border border-gray-300 rounded" value="+91 8235678443">
+                            </div>
+
+                            <!-- education details -->
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Degree:</label>
+                                <input type="text" id="editDegree" class="w-full mt-2 p-2 border border-gray-300 rounded" value="B.Sc in Computer Science">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">College:</label>
+                                <input type="text" id="editCollege" class="w-full mt-2 p-2 border border-gray-300 rounded" value="Zenex Vision Degree College">
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Graduation Year:</label>
+                                <input type="text" id="editGraduation" class="w-full mt-2 p-2 border border-gray-300 rounded" value="2024">
+                            </div>
+
+                            <!-- skills -->
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Skills:</label>
+                                <input type="text" id="editSkills" class="w-full mt-2 p-2 border border-gray-300 rounded" value="HTML, CSS, TailwindCSS, JavaScript, Node.js, Bootstrap">
+                            </div>
+
+                            <!-- hobbies -->
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Hobbies:</label>
+                                <input type="text" id="editHobbies" class="w-full mt-2 p-2 border border-gray-300 rounded" value="Reading, Traveling, Coding">
+                            </div>
+
+                            <button type="button" id="saveBtn" class="bg-green-500 text-white py-2 px-4 rounded mt-4">Save</button>
+                            <button type="button" id="cancelBtn" class="bg-red-500 text-white py-2 px-4 rounded mt-4">Cancel</button>
+                        </form>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+    <script>
+        const editBtn = document.getElementById('editBtn');
+        const editForm = document.getElementById('editForm');
+        const saveBtn = document.getElementById('saveBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        const profilePic = document.getElementById('profilePic');
+        const Name = document.getElementById('name');
+        const title = document.getElementById('title');
+        const bio = document.getElementById('bio');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const degree = document.getElementById('degree');
+        const college = document.getElementById('college');
+        const graduation = document.getElementById('graduation');
+        const skills = document.getElementById('skills');
+        const hobbies = document.getElementById('hobbies');
+
+        const editProfilePic = document.getElementById('editProfilePic');
+        const editName = document.getElementById('editName');
+        const editTitle = document.getElementById('editTitle');
+        const editBio = document.getElementById('editBio');
+        const editEmail = document.getElementById('editEmail');
+        const editPhone = document.getElementById('editPhone');
+        const editDegree = document.getElementById('editDegree');
+        const editCollege = document.getElementById('editCollege');
+        const editGraduation = document.getElementById('editGraduation');
+        const editSkills = document.getElementById('editSkills');
+        const editHobbies = document.getElementById('editHobbies');
+
+        editBtn.addEventListener('click', () => {
+            editForm.classList.toggle('hidden');
+        });
+
+        saveBtn.addEventListener('click', () => {
+            profilePic.src = editProfilePic.value;
+            name.textContent = editName.value;
+            title.textContent = editTitle.value;
+            bio.textContent = editBio.value;
+            email.href = editEmail.value;
+            email.textContent = editEmail.value;
+            phone.href = editPhone.value;
+            phone.textContent = editPhone.value;
+            degree.textContent = editDegree.value;
+            college.textContent = editCollege.value;
+            graduation.textContent = "Graduation: " + editGraduation.value;
+            skills.textContent = editSkills.value;
+            hobbies.textContent = editHobbies.value;
+
+            editForm.classList.add('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            editForm.classList.add('hidden');
+        });
+
+        const toggleContactBtn = document.getElementById('toggleContactBtn');
+        const contactInfo = document.getElementById('contactInfo');
+        const toggleEducationBtn = document.getElementById('toggleEducationBtn');
+        const educationInfo = document.getElementById('educationInfo');
+        const toggleSkillsBtn = document.getElementById('toggleSkillsBtn');
+        const skillsInfo = document.getElementById('skillsInfo');
+        const toggleHobbiesBtn = document.getElementById('toggleHobbiesBtn');
+        const hobbiesInfo = document.getElementById('hobbiesInfo');
+
+        toggleContactBtn.addEventListener('click', () => {
+            contactInfo.classList.toggle('hidden');
+        });
+
+        toggleEducationBtn.addEventListener('click', () => {
+            educationInfo.classList.toggle('hidden');
+        });
+
+        toggleSkillsBtn.addEventListener('click', () => {
+            skillsInfo.classList.toggle('hidden');
+        });
+
+        toggleHobbiesBtn.addEventListener('click', () => {
+            hobbiesInfo.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
